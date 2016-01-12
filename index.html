@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="vendor/jquery-1.11.1.js"></script>
 </head>
 <body>
-   Hello world
+<input type='text' id='nameInput' placeholder='Name'>
+<input type='text' id='messageInput' placeholder='Message'>
 </body>
+<script>
+    var myDataRef = new Firebase('https://crackling-inferno-9955.firebaseio.com/');
+
+    $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+            var name = $('#nameInput').val();
+            var text = $('#messageInput').val();
+            myDataRef.set({name: name, text: text});
+            $('#messageInput').val('');
+        }
+    });
+
+
+</script>
