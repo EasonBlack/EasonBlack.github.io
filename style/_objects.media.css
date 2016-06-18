@@ -5,4 +5,7 @@
   .wrapper__structure {
     margin: 0px 10px;
   }
+  .wrapper__left-space {
+    margin-left: 20px;
+  }
 }
